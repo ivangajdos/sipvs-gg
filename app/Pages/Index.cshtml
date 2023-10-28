@@ -1,0 +1,241 @@
+﻿@page
+@using System.Web
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    var result = ViewData["result"];
+}
+
+<div class="text-center">
+    <h1>Prihlásenie psa do evidencie</h1>
+    <hr>
+</div>
+<div class="container mt-5">
+    <form method="post">
+        <h2>Osobné údaje:</h2>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="https://www.slovensko.sk/static/zep/dbridge_js/v1.0/config.js"></script>
+        <script type="text/javascript"
+            src="https://www.slovensko.sk/static/zep/dbridge_js/v1.0/dCommon.min.js"></script>
+        <script type="text/javascript"
+            src="https://www.slovensko.sk/static/zep/dbridge_js/v1.0/dSigXades.min.js"></script>
+        <script type="text/javascript"
+            src="https://www.slovensko.sk/static/zep/dbridge_js/v1.0/dSigXadesBp.min.js"></script>
+        <script type="text/javascript"
+            src="https://www.slovensko.sk/static/zep/dbridge_js/v1.0/dSigXadesExtender.min.js"></script>
+        </script>
+
+
+
+        <div class="person" id="person">
+            <div class="form-group" id="clone">
+                <label for="meno">Obchodné meno / meno a priezvisko vlastníka ( držiteľa ) psa:</label>
+                <input type="text" class="form-control" id="meno" name="meno" required>
+            </div>
+
+            <div class="form-group">
+                <label for="adresa">Sídlo / trvalý pobyt vlastníka ( držiteľa ) psa:</label>
+                <input type="text" class="form-control" id="adresa" name="adresa" required>
+            </div>
+
+            <div class="form-group">
+                <label for="rodne_cislo">IČO /Rod. číslo vlastníka ( držiteľa ) psa:</label>
+                <input type="text" class="form-control" id="rodne_cislo" name="rodne_cislo" required>
+            </div>
+            <div class="form-group">
+                <label for="kontakt">Kontakt (Tel.číslo / email ):</label>
+                <input type="text" class="form-control" id="kontakt" name="kontakt" required>
+            </div>
+            <hr>
+        </div>
+        <button class="btn btn-primary" id="add">Pridať osobu</button>
+
+
+        <div class="form-group">
+            <label for="zariadenie">Umiestnenie chovného priestoru alebo zariadenia na chov, v ktorom sa pes
+                zdržiava*</label>
+            <input type="text" class="form-control" id="zariadenie" name="zariadenie">
+        </div>
+
+        <div class="form-group">
+            <label for="narodenie_psa">Dátum narodenia psa:</label>
+            <input type="date" class="form-control" id="narodenie_psa" name="narodenie_psa" required>
+        </div>
+
+        <div class="form-group">
+            <label for="drzba_psa">Dátum, odkedy je pes držaný na území mestskej časti:</label>
+            <input type="date" class="form-control" id="drzba_psa" name="drzba_psa" required>
+        </div>
+
+        <div class="form-group">
+            <label for="meno_psa">Meno psa:</label>
+            <input type="text" class="form-control" id="meno_psa" name="meno_psa" required>
+        </div>
+
+
+        <div class="form-group">
+            <label for="plemeno">Plemeno:</label>
+            <input type="text" class="form-control" id="plemeno" name="plemeno" required>
+        </div>
+
+        <div class="form-group">
+            <label for="pohlavie">Pohlavie psa:</label>
+            <select class="form-control" id="pohlavie" name="pohlavie" required>
+                <option value="Pes">Pes</option>
+                <option value="Fena">Fena</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="farba">Farba:</label>
+            <input type="text" class="form-control" id="farba" name="farba" required>
+        </div>
+
+        <div class="form-group">
+            <label for="znamka">Evidenčné číslo psa ( číslo známky ):</label>
+            <input type="number" class="form-control" id="znamka" name="znamka" required>
+        </div>
+
+        <div class="form-group">
+            <label for="c_cipu">Číslo mikročipu alebo tetovacie číslo psa:</label>
+            <input type="number" class="form-control" id="c_cipu" name="c_cipu" required>
+        </div>
+
+        <div class="form-group">
+            <label for="pocet_psov">Počet psov v držbe:</label>
+            <input type="number" class="form-control" id="pocet_psov" name="pocet_psov" required>
+        </div>
+
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="pohryznutie" name="pohryznutie" value="false">
+                <label class="form-check-label" for="pohryznutie">
+                    Skutočnosť, že pes pohrýzol alebo poranil človeka
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="datum">Dátum</label>
+            <input type="date" class="form-control" id="datum" name="datum"
+                value="@Model.CurrentDate.ToString("yyyy-MM-dd")" required>
+        </div>
+
+        <input type="submit" class="btn btn-primary" id="in" name="in" value="Ulož">
+
+    </form>
+    <br>
+    <form method="post">
+        <input type="submit" class="btn btn-primary" id="in" name="in" value="Tranformuj">
+        <input type="submit" class="btn btn-primary" id="in" name="in" value="Over">
+        <input type="submit" class="btn btn-primary" id="podpis" name="in" value="Podpíš">
+    </form>
+
+
+    <section>
+        <p>
+            *ak sa umiestnenie nezhoduje s miestom trvalého pobytu vlastníka ( držiteľa ) psa
+        </p>
+        <p>@result</p>
+    </section>
+
+    <script>
+        @{
+            // Obtain the Base64 content using your C# method
+            var base64Content = SIPVS.LoadPdf.LoadFileAsBase64("example.pdf");
+            var encodedBase64Content = HttpUtility.UrlEncode(base64Content);
+        }
+    </script>
+
+    <script>
+
+            function Callback(onSuccess) {
+                this.onSuccess = onSuccess;
+                this.onError = function (e) {
+                    alert("Chyba: " + e);
+                };
+            }
+
+        async function executeScript() {
+
+            var xmlData = await loadXML();
+            var xsdData = await loadXSD();
+            var xslData = await loadXSL();
+
+
+            ditec.dSigXadesJs.deploy(null, new Callback(function () {
+
+                ditec.dSigXadesJs.initialize(new Callback(function () {
+                    //  function(objectId, objectDescription, sourcePdfBase64, password, objectFormatIdentifier, reqLevel, convert, callback) {
+                    ditec.dSigXadesJs.addXmlObject2("objectId_3", "Registracia psa", xmlData, xsdData, 'http://example.com/PrihlasenieSchema.xsd', 'http://example.com/PrihlasenieSchema.xsd', xslData, "http://example.com/PrihlasenieSchema.xsd", 'HTML', new Callback(function () {
+                        ditec.dSigXadesJs.addPdfObject("objectId_2", "test pdf", decodeURIComponent("@encodedBase64Content"), "", "http://example.com/objectFormatIdentifier", 2, false, new Callback(function () {
+
+                            ditec.dSigXadesJs.sign20("signatureId", "http://www.w3.org/2001/04/xmlenc#sha256", "urn:oid:1.3.158.36061701.1.2.3", "dataEnvelopeId", "http://dataEnvelopeURI", "dataEnvelopeDescr", new Callback(function () {
+
+                                ditec.dSigXadesJs.getSignedXmlWithEnvelope(new Callback(function (ret) {
+                                    // returned signed document
+                                    // Format XML
+                                    const xmlDoc = new DOMParser().parseFromString(ret, 'text/xml');
+                                    const serializer = new XMLSerializer();
+                                    const formattedXML = serializer.serializeToString(xmlDoc);
+
+                                    // Save XML to a new file
+                                    const blob = new Blob([formattedXML], { type: 'text/xml' });
+                                    const url = URL.createObjectURL(blob);
+                                    const a = document.createElement('a');
+                                    a.href = url;
+                                    a.download = 'signed.xml';
+                                    a.click();
+                                    URL.revokeObjectURL(url);
+                                }));
+                            }));
+                        }));
+                    }));
+                }));
+            }));
+        }
+        // Attach a click event listener to the button
+        document.getElementById("podpis").addEventListener("click", executeScript);
+
+
+        async function loadXML() {
+
+            try {
+                const response = await fetch('?handler=XmlData');
+                const xmlText = await response.text();
+                return xmlText;
+
+
+            } catch (error) {
+                console.error('Error loading XML:', error);
+            }
+        }
+
+        async function loadXSD() {
+            try {
+                const response = await fetch('?handler=XsdData');
+                const xsdText = await response.text();
+                console.log(xsdText)
+                return xsdText;
+
+
+            } catch (error) {
+                console.error('Error loading XML:', error);
+            }
+        }
+
+        async function loadXSL() {
+            try {
+                const response = await fetch('?handler=XslData');
+                const xslText = await response.text();
+                console.log(xslText)
+                return xslText;
+
+
+            } catch (error) {
+                console.error('Error loading XML:', error);
+            }
+        }
+
+    </script>
+</div>
