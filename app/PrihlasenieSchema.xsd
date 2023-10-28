@@ -1,0 +1,57 @@
+<xs:schema 
+attributeFormDefault="unqualified" 
+elementFormDefault="qualified" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:tns="http://example.com/PrihlasenieSchema.xsd" 
+targetNamespace="http://example.com/PrihlasenieSchema.xsd">
+  <xs:element name="reg_formular" type="tns:reg_formularType"/>
+  
+  <xs:complexType name="reg_formularType">
+    <xs:sequence>
+      <xs:element type="tns:pesType" name="pes" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="kontakttypType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="email"></xs:enumeration>
+      <xs:enumeration value="telefon"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="kontaktType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="typ" type="tns:kontakttypType" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="osobaType">
+    <xs:all>
+      <xs:element  name="meno" type="xs:string"/>
+      <xs:element  name="adresa" type="xs:string"/>
+      <xs:element  name="rodne_cislo" type="xs:string"/>
+      <xs:element  name="kontakt" type="tns:kontaktType"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="pesType">
+    <xs:sequence>
+      <xs:element name="osoba" type="tns:osobaType" maxOccurs="unbounded" />
+      <xs:element  name="zariadenie" type="xs:string" minOccurs="0"/>
+      <xs:element  name="narodenie_psa" type="xs:date"/>
+      <xs:element  name="drzba_psa" type="xs:date"/>
+      <xs:element  name="meno_psa" type="xs:string"/>
+      <xs:element  name="plemeno" type="xs:string"/>
+      <xs:element  name="pohlavie" type="xs:string"/>
+      <xs:element  name="farba" type="xs:string"/>
+      <xs:element  name="znamka" type="xs:int"/>
+      <xs:element  name="c_cipu" type="xs:int"/>
+      <xs:element  name="pocet_psov" type="xs:int"/>
+      <xs:element  name="pohryznutie" type="xs:boolean"/>
+      <xs:element  name="datum" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

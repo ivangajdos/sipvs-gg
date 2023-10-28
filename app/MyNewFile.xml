@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<reg_formular xmlns="http://example.com/PrihlasenieSchema.xsd">
+  <pes>
+    <osoba>
+      <meno>rhr6h</meno>
+      <adresa>yy</adresa>
+      <rodne_cislo>4413161</rodne_cislo>
+      <kontakt typ="email">ivanggajdos@gmail.com</kontakt>
+    </osoba>
+    <zariadenie>buda</zariadenie>
+    <narodenie_psa>2023-10-12</narodenie_psa>
+    <drzba_psa>2023-10-20</drzba_psa>
+    <meno_psa>dzoza</meno_psa>
+    <plemeno>gvsg</plemeno>
+    <pohlavie>Pes</pohlavie>
+    <farba>hsrthr</farba>
+    <znamka>1</znamka>
+    <c_cipu>1</c_cipu>
+    <pocet_psov>1</pocet_psov>
+    <pohryznutie>false</pohryznutie>
+    <datum>2023-10-24</datum>
+  </pes>
+</reg_formular>

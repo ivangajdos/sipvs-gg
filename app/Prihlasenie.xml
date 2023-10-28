@@ -1,0 +1,21 @@
+<?xml-stylesheet type="text/xsl" version="1.0" encoding="UTF-8" href="PrihlasenieStranka.xsl" ?>
+<reg_formular xmlns="http://example.com/PrihlasenieSchema.xsd" >
+    <pes>
+        <meno>Dušan Martel</meno>
+        <adresa>Košcany 5</adresa>
+        <rodne_cislo>123456/7890</rodne_cislo>
+        <kontakt>dušky.martel@gmail.com</kontakt>
+        <zariadenie> </zariadenie>
+        <narodenie_psa>2023-01-15</narodenie_psa>
+        <drzba_psa>2023-01-15</drzba_psa>
+        <meno_psa>Džoza</meno_psa>
+        <plemeno>Labrador Retriever</plemeno>
+        <pohlavie>Fena</pohlavie>
+        <farba>Cierna</farba>
+        <znamka>548</znamka>
+        <c_cipu>123456789</c_cipu>
+        <pocet_psov>1</pocet_psov>
+        <pohryznutie>Nie</pohryznutie>
+        <datum>09.10.2023</datum>
+    </pes>
+</reg_formular>
